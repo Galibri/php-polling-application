@@ -242,3 +242,16 @@ canvas {
     margin-bottom: 25px;
     padding-bottom: 25px;
 }
+
+
+/* Slider css */
+.owl-nav .owl-prev.disabled,
+.owl-nav .owl-next.disabled {
+   display: none;
+}
+.owl-carousel .owl-nav button.owl-next, .owl-carousel .owl-nav button.owl-prev {
+    background: #056474;
+    padding: 10px 20px !important;
+    margin-right: 10px;
+    color: #fff;
+}

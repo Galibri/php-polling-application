@@ -36,3 +36,18 @@ function loadBarChart(labels, label, data, cavas_id, title, type='bar', redraw=f
     });
 
 }
+
+
+
+
+
+/* Custom Slider js */
+$(document).ready(function(){
+    $(".owl-carousel").owlCarousel({
+        items: 1,
+        autoplay: false,
+        nav: true,
+        dots: false,
+        navText: ['Previous', 'Next']
+    });
+  });

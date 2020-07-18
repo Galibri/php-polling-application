@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jul 16, 2020 at 07:27 PM
+-- Generation Time: Jul 17, 2020 at 06:04 PM
 -- Server version: 8.0.20-0ubuntu0.20.04.1
 -- PHP Version: 7.4.3
 
@@ -32,7 +32,7 @@ CREATE TABLE `answers` (
   `id` int NOT NULL,
   `question_id` int NOT NULL,
   `answer` text
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `answers`
@@ -68,7 +68,7 @@ CREATE TABLE `questionnaires` (
   `id` int NOT NULL,
   `name` varchar(255) NOT NULL,
   `question_ids` text
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `questionnaires`
@@ -93,7 +93,7 @@ CREATE TABLE `questions` (
   `is_global` tinyint(1) NOT NULL DEFAULT '1',
   `number_of_ans` int DEFAULT NULL,
   `added_on` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `questions`
@@ -122,7 +122,7 @@ CREATE TABLE `users` (
   `phone` varchar(255) DEFAULT NULL,
   `is_admin` tinyint(1) NOT NULL DEFAULT '0',
   `added_on` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
@@ -143,7 +143,7 @@ CREATE TABLE `user_answers` (
   `question_id` int NOT NULL,
   `answer_id` int DEFAULT NULL,
   `free_answer` text
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `user_answers`
@@ -176,7 +176,7 @@ CREATE TABLE `user_q_answers` (
   `question_id` int NOT NULL,
   `answer_id` int DEFAULT NULL,
   `free_answer` text
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `user_q_answers`

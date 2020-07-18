@@ -1,17 +1,51 @@
 <?php include './includes/header.php';?>
 
 <?php
-    $stmt = $conn->prepare("SELECT * FROM questions WHERE is_global=:is_global AND (type=:type OR type=:type2)");
-    $stmt->execute([
-        'is_global' => 1,
-        'type'      => 1,
-        'type2'     => 2
-    ]);
-    $questions = $stmt->fetchAll();
+    $questionnaire_id = '';
+
+    if(isset($_GET['questionnaire-id'])) {
+        $questionnaire_id = $_GET['questionnaire-id'];
+        if($questionnaire_id == '') {
+            redirect('questionnaire-result.php');
+        }
+
+        $stmt3 = $conn->prepare("SELECT * FROM questionnaires WHERE id=:id");
+        $stmt3->execute(['id' => $questionnaire_id]);
+        $single_qtionries = $stmt3->fetch();
+        $q_ids = $single_qtionries['question_ids'];
+
+
+        $stmt2 = $conn->prepare("SELECT * FROM questions WHERE id IN ($q_ids) AND (type=:type OR type=:type2)");
+        $stmt2->execute([
+            'type'      => 1,
+            'type2'     => 2
+        ]);
+        $questions = $stmt2->fetchAll();
+
+    } else {
+        $stmt = $conn->prepare("SELECT * FROM questionnaires");
+        $stmt->execute();
+        $all_qtnries = $stmt->fetchAll();
+    }
 ?>
 
 <main>
-    <h1>Results (For all the questions in homepage)</h1>
+
+    <?php echo isset($_GET['questionnaire-id']) ? "<h1>Questionnaire Results</h1>" : "<h1>Questionnaires Results</h1>"; ?>
+
+    <?php if( $questionnaire_id == '' ) : ?>
+    <table class="table2">
+        <tbody>
+        <?php foreach($all_qtnries as $qtnries) : ?>
+            <tr>
+                <td><?php echo $qtnries['name'] ?></td>
+                <td><a href="questionnaire-result.php?questionnaire-id=<?php echo $qtnries['id'] ?>" class="btn-info">View Result</a></td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+    <?php else: ?>
+    
 
     <?php foreach ($questions as $question): ?>
     <h3 class="result-q-title mt-3"><?php echo $question['question']; ?></h3>
@@ -69,6 +103,7 @@
     });
     </script>
     <?php endforeach; ?>
+    <?php endif; ?>
 
 </main>
 

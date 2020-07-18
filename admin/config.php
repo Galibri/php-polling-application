@@ -3,7 +3,7 @@ $servername      = "localhost";
 $username        = "root";
 $password        = "admin";
 $dbname          = "polling";
-$site_url_suffix = "polling";
+$site_url_suffix = "polling/";
 
 try {
 

@@ -5,9 +5,13 @@
 <head>
     <title>iPoll System</title>
     <link rel="stylesheet" href="assets/Chart.min.css" />
+    <link rel="stylesheet" href="assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/owl.theme.default.min.css">
     <link rel="stylesheet" href="ipoll.css" />
+
     <script src="assets/jquery-1.12.4.min.js"></script>
     <script src="assets/Chart.min.js"></script>
+    <script src="assets/owl.carousel.min.js"></script>
     <script src="assets/custom.js"></script>
 </head>
 
@@ -20,13 +24,16 @@
                 <li><a class="<?php echo nav_active_class('index.php'); ?>" href="<?php echo home_url(); ?>">Home</a>
                 </li>
                 <li><a class="<?php echo nav_active_class('questionnaire.php'); ?>"
-                        href="<?php echo home_url() . '/questionnaire.php'; ?>">Questionnaire</a></li>
+                        href="<?php echo home_url() . 'questionnaire.php'; ?>">Questionnaire</a></li>
+                <li><a class="<?php echo nav_active_class('questionnaire-slide.php'); ?>" href="<?php echo home_url() . 'questionnaire-slide.php'; ?>">Questionnaire Animation</a></li>
                 <li><a class="<?php echo nav_active_class('results.php'); ?>"
-                        href="<?php echo home_url() . '/results.php'; ?>">Results</a></li>
+                        href="<?php echo home_url() . 'results.php'; ?>">Results</a></li>
+                <li><a class="<?php echo nav_active_class('questionnaire-result.php'); ?>" href="<?php echo home_url() . 'questionnaire-result.php'; ?>">Questionnaire Result</a></li>
+                        
                 <?php if (is_user_logged_in()): ?>
                 <li><a href="<?php echo admin_url(); ?>">Dashboard</a></li>
                 <?php else: ?>
-                <li><a href="<?php echo home_url() . '/login.php'; ?>">Login</a></li>
+                <li><a href="<?php echo home_url() . 'login.php'; ?>">Login</a></li>
                 <?php endif;?>
             </ul>
         </div>
